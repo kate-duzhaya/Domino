@@ -6,7 +6,7 @@ def get_full_domino_set() -> list:
     return [[x, y] for x in range(0, 7) for y in range(x, 7)]
 
 
-def get_player_dominoes(full_set: list) -> tuple:
+def get_player_dominoes(full_set: list):
     shuffled_set = random.sample(full_set, len(full_set))
     player_set = random.sample(shuffled_set, k=7)
     computer_set = random.sample([x for x in shuffled_set if x not in player_set], k=7)
@@ -14,7 +14,7 @@ def get_player_dominoes(full_set: list) -> tuple:
     return stock_set, computer_set, player_set
 
 
-def get_starting_piece(player_set: list, computer_set: list) -> tuple:
+def get_starting_piece(player_set: list, computer_set: list):
     dominoes = []
     if max(player_set) > max(computer_set):
         dominoes.append(max(player_set))
